@@ -1,0 +1,116 @@
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    background-color: #f8f9fa;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .brand {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .profile {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .role {
+    font-size: 0.9rem;
+    color: #bbb;
+  }
+  
+  .menu {
+    padding: 0;
+  }
+  
+  .menu li {
+    padding: 12px 10px;
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu li:hover {
+    background-color: #444;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .room-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  
+  .room-card {
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-green {
+    background-color: #28a745;
+  }
+  
+  .card-yellow {
+    background-color: #ffc107;
+    color: #333;
+  }
+  
+  .card-red {
+    background-color: #dc3545;
+  }
+  
+  .card-gray {
+    background-color: #6c757d;
+  }
+  
+  .icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .icons svg {
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .icons svg:hover {
+    transform: scale(1.2);
+  }
+  

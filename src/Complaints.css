@@ -1,0 +1,120 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #f0f4ff, #e0e7ff);
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Complaints Container */
+  .complaints-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .complaints-box {
+    width: 90%;
+    max-width: 800px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Titles */
+  .title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #6b46c1;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Complaint Input */
+  .complaint-input-box {
+    background: #f9f9ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .input-group {
+    display: flex;
+  }
+  
+  .complaint-input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #d1d5db;
+    border-radius: 8px 0 0 8px;
+    outline: none;
+    transition: 0.3s;
+  }
+  
+  .submit-btn {
+    background: #6b46c1;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background: #553c9a;
+  }
+  
+  /* Complaints List */
+  .complaints-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .complaint-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+  }
+  
+  .complaint-text {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  /* Admin Reply */
+  .admin-reply-box {
+    background: #f0f0ff;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+  }
+  
+  /* Rating Section */
+  .rating-stars {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+  }
+  
+  .star {
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    color: gray;
+  }
+  
+  .star.selected {
+    color: gold;
+  }
+  
+  .star:hover {
+    transform: scale(1.2);
+  }
+  
