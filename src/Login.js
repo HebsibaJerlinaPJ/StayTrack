@@ -17,16 +17,23 @@ const Login = () => {
     e.preventDefault();
     setError("");
     setLoading(true);
-
+  
     try {
       const response = await axios.post("http://localhost:5000/login", {
         username,
         password,
         role,
       });
+  
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
-        navigate("/dashboard");
+  
+        // ✅ Redirect based on role
+        if (role === "admin") {
+          navigate("/dashboard");
+        } else {
+          navigate("/home");
+        }
       }
     } catch (err) {
       setError("❌ Invalid Username or Password");
@@ -34,6 +41,7 @@ const Login = () => {
       setLoading(false);
     }
   };
+  
 
   const handleRoleChange = (e, newRole) => {
     if (newRole) {

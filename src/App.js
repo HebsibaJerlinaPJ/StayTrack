@@ -9,6 +9,10 @@ import Statistics from "./Statistics.js";
 import Staff from "./Staff.js";
 import Complaints from "./Complaints.js";
 import RoomplacementPage from "./RoomPlacementPage.jsx";
+import Home from "./Home.js"
+import Spa from "./Spa.js"
+import Feedback from "./Feedback.js"
+import Experience from "./Experience.js"
 //import { StrictModeDroppable } from "./StrictModeDroppable.jsx";
 
 function App() {
@@ -16,7 +20,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-        <Route path="/" element={<Login />} /> 
+        <Route path="/" element={<Home />} /> 
           <Route path="/booking" element={<Booking />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -25,6 +29,10 @@ function App() {
         <Route path="/Statistics" element={<Statistics />} />
         <Route path="/staff" element={<Staff />} />
         <Route path="/complaints" element={<Complaints />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/spa" element={<Spa />} />
+        <Route path="/feedback" element={<Feedback />} />
+        <Route path="/exp" element={<Experience />} />
         </Routes>
       </div>
     </Router>
