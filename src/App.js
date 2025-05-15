@@ -13,6 +13,9 @@ import Home from "./Home.js"
 import Spa from "./Spa.js"
 import Feedback from "./Feedback.js"
 import Experience from "./Experience.js"
+import About from "./About.js"
+import Book from "./Book.js"
+import Dine from "./Dining.js"
 //import { StrictModeDroppable } from "./StrictModeDroppable.jsx";
 
 function App() {
@@ -33,6 +36,9 @@ function App() {
         <Route path="/spa" element={<Spa />} />
         <Route path="/feedback" element={<Feedback />} />
         <Route path="/exp" element={<Experience />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/book" element={<Book />} />
+        <Route path="/dine" element={<Dine />} />
         </Routes>
       </div>
     </Router>

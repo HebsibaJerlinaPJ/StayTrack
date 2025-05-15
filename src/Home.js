@@ -24,7 +24,7 @@ export default function HotelManagementSystem() {
     {
       id: 3,
       name: "Emma Williams",
-      position: "Honeymoon Stay",
+      position: "Family Stay",
       quote: "The romantic package exceeded our expectations. Beautiful views, exceptional service, and the dining was world-class.",
       rating: 5,
     },
@@ -42,10 +42,11 @@ export default function HotelManagementSystem() {
           
           {/* Desktop Navigation */}
           <nav style={styles.desktopNav}>
-          <Link to="/booking" style={styles.navLink}>Booking</Link>
-            <Link to="/dining" style={styles.navLink}>Dining</Link>
+          <Link to="/book" style={styles.navLink}>Booking</Link>
+            <Link to="/dine" style={styles.navLink}>Dining</Link>
               <Link to="/spa" style={styles.navLink}>SPA</Link>
            <Link to="/feedback" style={styles.navLink}>Feedback</Link>
+           <Link to="/about" style={styles.navLink}>AboutUS</Link>
            <Link to="/exp" style={styles.navLink}>Experience</Link>
           </nav>
           
@@ -61,10 +62,11 @@ export default function HotelManagementSystem() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div style={styles.mobileNav}>
-            <Link to="/booking" style={styles.mobileNavLink}>Booking</Link>
-            <Link to="/dining" style={styles.mobileNavLink}>Dining</Link>
+            <Link to="/book" style={styles.mobileNavLink}>Booking</Link>
+            <Link to="/dine" style={styles.mobileNavLink}>Dining</Link>
               <Link to="/spa" style={styles.mobileNavLink}>SPA</Link>
            <Link to="/feedback" style={styles.mobileNavLink}>Feedback</Link>
+           <Link to="/about" style={styles.mobileNavLink}>AboutUS</Link>
            <Link to="/exp" style={styles.mobileNavLink}>Experience</Link>
            <Link to="/login" style={styles.mobileNavLink}>Login</Link>
            
