@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 // Inside component
-const navigate = useNavigate();
+
 
 
 const BookingPage = () => {
@@ -15,7 +15,7 @@ const BookingPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-
+  const navigate = useNavigate();
 
 
 const handleSubmit = async (e) => {
