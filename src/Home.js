@@ -20,7 +20,7 @@ function Home() {
   const [checkOutDate, setCheckOutDate] = useState("");
   const [guests, setGuests] = useState(1);
 
-  // Define image array for background rotation
+  // Array of background images
   const backgrounds = [rest1, rest2, rest3];
 
   // Rotate background images every 5 seconds
@@ -75,6 +75,7 @@ function Home() {
             <Link to="/feedback" className="nav-link">Feedback</Link>
             <Link to="/about" className="nav-link">AboutUS</Link>
             <Link to="/exp" className="nav-link">Experience</Link>
+            <Link to="/login" className="nav-link">Login</Link>
           </nav>
           
           <button 
