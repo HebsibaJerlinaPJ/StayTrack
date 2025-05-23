@@ -344,13 +344,15 @@ html, body, #root {
   text-align: center;
 }
 
-.section-title {
+/* Increase specificity to ensure the title is visible */
+.section-header .section-title {
   font-size: 36px;
   font-weight: 700;
   color: #0c4b33;
   margin-bottom: 15px;
   position: relative;
   display: inline-block;
+  visibility: visible; /* Ensure visibility */
 }
 
 .section-title::after {
@@ -524,8 +526,8 @@ html, body, #root {
 /* Newsletter Section */
 .newsletter-section {
   padding: 80px 0;
-  background: linear-gradient(135deg, #0c4b33 0%, #082a1e 100%);
-  color: #fff;
+  background: #fff; /* White background */
+  color: #000; /* Black text */
   width: 100%;
   margin: 0;
 }
@@ -540,6 +542,7 @@ html, body, #root {
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 20px;
+  color: #0c4b33; /* Changed to green */
 }
 
 @media (max-width: 768px) {
@@ -551,7 +554,7 @@ html, body, #root {
 .newsletter-description {
   font-size: 18px;
   margin-bottom: 40px;
-  opacity: 0.9;
+  opacity: 1; /* Full opacity for readability */
 }
 
 @media (max-width: 768px) {
@@ -576,7 +579,7 @@ html, body, #root {
   flex: 1;
   padding: 15px 20px;
   font-size: 16px;
-  border: none;
+  border: 2px solid #ccc; /* Changed to gray border */
   border-radius: 50px 0 0 50px;
 }
 
@@ -589,12 +592,12 @@ html, body, #root {
 
 .newsletter-input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 2px rgba(204, 204, 204, 0.3); /* Updated shadow to match gray border */
 }
 
 .newsletter-button {
-  background-color: #fff;
-  color: #0c4b33;
+  background-color: #0c4b33; /* Green button */
+  color: #fff; /* White text for contrast */
   padding: 15px 30px;
   font-size: 16px;
   font-weight: 600;
@@ -611,10 +614,9 @@ html, body, #root {
 }
 
 .newsletter-button:hover {
-  background-color: #f0f0f0;
+  background-color: #0a3a28; /* Slightly darker green for hover */
   transform: translateY(-2px);
 }
-
 /* Footer */
 .footer {
   background-color: #082a1e;

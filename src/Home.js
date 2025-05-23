@@ -156,54 +156,53 @@ function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="services-section">
-        <div className="section-header">
-          <h2 className="section-title">Our Exclusive Services</h2>
-          <p className="section-subtitle">Experience the pinnacle of luxury hospitality</p>
-        </div>
-        <div className="services-grid">
-          <div className="service-card">
-            <div className="service-image-container">
-              <img src={roomService} alt="Luxury Accommodation" className="service-image" />
-              <div className="service-overlay"></div>
-            </div>
-            <div className="service-content">
-              <h3 className="service-title">Luxury Accommodation</h3>
-              <p className="service-description">
-                Experience comfort in our elegantly designed rooms and suites with premium amenities
-              </p>
-              <Link to="/book" className="service-link">Discover More →</Link>
-            </div>
-          </div>
-          <div className="service-card">
-            <div className="service-image-container">
-              <img src={diningService} alt="Fine Dining" className="service-image" />
-              <div className="service-overlay"></div>
-            </div>
-            <div className="service-content">
-              <h3 className="service-title">Fine Dining</h3>
-              <p className="service-description">
-                Savor exquisite cuisine prepared by award-winning chefs in our restaurants
-              </p>
-              <Link to="/dine" className="service-link">Discover More →</Link>
-            </div>
-          </div>
-          <div className="service-card">
-            <div className="service-image-container">
-              <img src={spaService} alt="Premium Spa" className="service-image" />
-              <div className="service-overlay"></div>
-            </div>
-            <div className="service-content">
-              <h3 className="service-title">Premium Spa</h3>
-              <p className="service-description">
-                Rejuvenate your senses with our world-class spa treatments and therapies
-              </p>
-              <Link to="/spa" className="service-link">Discover More →</Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
+<section className="services-section">
+  <div className="section-header">
+    <h2 className="section-title">Our Exclusive Services</h2>
+    <p className="section-subtitle">Experience the pinnacle of luxury hospitality</p>
+  </div>
+  <div className="services-grid">
+    <div className="service-card">
+      <div className="service-image-container">
+        <img src={roomService} alt="Luxury Accommodation" className="service-image" />
+        <div className="service-overlay"></div>
+      </div>
+      <div className="service-content">
+        <h3 className="service-title">Luxury Accommodation</h3>
+        <p className="service-description">
+          Experience comfort in our elegantly designed rooms and suites with premium amenities
+        </p>
+        <Link to="/book" className="service-link">Discover More →</Link>
+      </div>
+    </div>
+    <div className="service-card">
+      <div className="service-image-container">
+        <img src={diningService} alt="Fine Dining" className="service-image" />
+        <div className="service-overlay"></div>
+      </div>
+      <div className="service-content">
+        <h3 className="service-title">Fine Dining</h3>
+        <p className="service-description">
+          Savor exquisite cuisine prepared by award-winning chefs in our restaurants
+        </p>
+        <Link to="/dine" className="service-link">Discover More →</Link>
+      </div>
+    </div>
+    <div className="service-card">
+      <div className="service-image-container">
+        <img src={spaService} alt="Premium Spa" className="service-image" />
+        <div className="service-overlay"></div>
+      </div>
+      <div className="service-content">
+        <h3 className="service-title">Premium Spa</h3>
+        <p className="service-description">
+          Rejuvenate your senses with our world-class spa treatments and therapies
+        </p>
+        <Link to="/spa" className="service-link">Discover More →</Link>
+      </div>
+    </div>
+  </div>
+</section>
       {/* Testimonials */}
       <section className="testimonials-section">
         <div className="section-header">
@@ -229,23 +228,23 @@ function Home() {
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="newsletter-section">
-        <div className="newsletter-content">
-          <h2 className="newsletter-title">Stay Updated with Exclusive Offers</h2>
-          <p className="newsletter-description">
-            Subscribe to our newsletter and be the first to know about special offers and events
-          </p>
-          <div className="newsletter-form">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              className="newsletter-input"
-            />
-            <button className="newsletter-button">Subscribe</button>
-          </div>
-        </div>
-      </section>
+  {/* Newsletter Section */}
+<section className="newsletter-section">
+  <div className="newsletter-content">
+    <h2 className="newsletter-title">Stay Updated with Exclusive Offers</h2>
+    <p className="newsletter-description">
+      Subscribe to our newsletter and be the first to know about special offers and events
+    </p>
+    <div className="newsletter-form">
+      <input
+        type="email"
+        placeholder="Enter your email address"
+        className="newsletter-input"
+      />
+      <button className="newsletter-button">Subscribe</button>
+    </div>
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="footer">
