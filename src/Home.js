@@ -227,8 +227,7 @@ function Home() {
           ))}
         </div>
       </section>
-
-  {/* Newsletter Section */}
+{/* Newsletter Section */}
 <section className="newsletter-section">
   <div className="newsletter-content">
     <h2 className="newsletter-title">Stay Updated with Exclusive Offers</h2>
