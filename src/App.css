@@ -1,3 +1,22 @@
+/* Reset default styles for a cleaner look */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  background-color: #f8f7f3; /* Light cream background to match the luxurious theme */
+}
+
+/* Sidebar and Content Layout */
 .sidebar {
   width: 250px;
   height: 100vh;
@@ -10,21 +29,21 @@
   margin-left: 260px;
 }
 
+/* Card Global Styles */
 .card {
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none; /* Ensure no blue borders from Bootstrap */
 }
-body{
-  background-color: aliceblue;
-}
-/* Global Styles */
+
+/* Global Styles for Spa Page */
 .spa-container {
   font-family: Arial, sans-serif;
   background: linear-gradient(to right, #e9e8e8, #ffff);
   padding: 20px;
 }
 
-/* Hero Section */
+/* Hero Section (Spa Page) */
 .hero-section {
   position: relative;
   text-align: center;
@@ -69,14 +88,14 @@ body{
   }
 }
 
-/* Services Section */
+/* Services Section (Spa Page) */
 .services-section {
   text-align: center;
   margin-top: 40px;
 }
 
-.services-section h2{
-  color: #0000;
+.services-section h2 {
+  color: #333; /* Changed from #0000 (invalid) to a dark gray */
 }
 
 .services-grid {
@@ -134,7 +153,7 @@ body{
   opacity: 0.8;
 }
 
-/* Gallery Section */
+/* Gallery Section (Spa Page) */
 .gallery-section {
   text-align: center;
   margin-top: 60px;
@@ -150,7 +169,7 @@ body{
   border-radius: 10px;
 }
 
-/* Booking Modal */
+/* Booking Modal (Spa Page) */
 .booking-modal {
   position: fixed;
   top: 0;
@@ -206,4 +225,341 @@ body{
 
 .cancel-button:hover {
   background-color: #c82333 !important;
+}
+
+/* Background images */
+.carousel img {
+  height: 60vh;
+  object-fit: cover;
+}
+
+/* Event Cards */
+.card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Meet & Celebrate Section (Used by Dining.js) */
+.meet-celebrate-section {
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f7f3; /* Light cream background for a luxurious feel */
+}
+
+/* Styling for Carousel Background (Dining Page) */
+.background-slide {
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Ensure carousel doesn't cause overflow */
+.carousel, .carousel-inner, .carousel-item {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Carousel Text Styling */
+.background-slide h2, 
+.background-slide p {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+.background-slide h2 {
+  font-size: 3rem;
+  letter-spacing: 1px;
+}
+
+.background-slide p {
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+/* Adjust Carousel Controls (Remove blue, use golden) */
+.carousel-control-prev, .carousel-control-next {
+  filter: invert(100%);
+  opacity: 0.8;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+  opacity: 1;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #D4AF37 !important;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+/* Culinary Section Container */
+.culinary-section {
+  padding: 70px 70px; /* Increased padding for more space above, below, left, and right */
+}
+
+/* Culinary Heading Styling */
+.culinary-heading {
+  color: #333;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 15px;
+  margin-top: 40px; /* Added space above the heading */
+  margin-bottom: 60px; /* Increased space below the heading */
+}
+
+.culinary-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px; /* Short golden underline, not full page width */
+  height: 3px;
+  background-color: #D4AF37; /* Golden underline */
+}
+
+/* Row Styling for Cards */
+.culinary-row {
+  padding-left: 30px; /* Extra space on the left of the cards */
+  padding-right: 30px; /* Extra space on the right of the cards */
+}
+
+/* Venue Card Styling (Dining Page) */
+.venue-card {
+  border: none;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+  overflow: hidden; /* Prevent content from overflowing */
+}
+
+.venue-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.venue-img {
+  height: 240px; /* Larger images for a spacious feel */
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+/* Card Body Styling */
+.venue-card .card-body {
+  padding: 2rem;
+}
+
+.venue-card .card-title {
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+  color: #333;
+}
+
+.venue-card .card-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #666;
+}
+
+/* Enquire Button Golden Style */
+.enquire-btn {
+  border: 2px solid #D4AF37 !important; /* Golden border */
+  border-radius: 0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 8px 15px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: #D4AF37 !important; /* Golden text */
+  background: transparent !important;
+}
+
+.enquire-btn:hover {
+  background-color: #D4AF37 !important; /* Golden background */
+  color: white !important;
+  border-color: #D4AF37 !important;
+}
+
+/* More Button Styling */
+.more-btn {
+  color: #000 !important; /* Black text */
+  text-decoration: none !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 6px 10px; /* Reduced padding for smaller size */
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.7rem !important; /* Smaller font size */
+  background: transparent !important;
+  border: none !important;
+}
+
+.more-btn:hover {
+  color: #333 !important; /* Slightly lighter black on hover */
+  text-decoration: underline !important;
+  background: transparent !important;
+}
+
+/* Golden Theme Styles */
+.text-gold {
+  color: #D4AF37 !important;
+}
+
+.border-gold {
+  border-color: #D4AF37 !important;
+}
+
+.golden-button {
+  background-color: #D4AF37;
+  border: none;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.golden-button:hover {
+  background-color: #C9A227;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);
+}
+
+.golden-button:active {
+  transform: translateY(0);
+}
+
+/* Enquiry Modal Styling */
+.enquiry-modal .modal-content {
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 0;
+}
+
+.enquiry-modal .form-control {
+  border: 1px solid #D4AF37 !important;
+  transition: border-color 0.3s ease;
+}
+
+.enquiry-modal .form-control:focus {
+  border-color: #D4AF37 !important;
+  box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25) !important;
+}
+
+.gold-checkbox .form-check-input:checked {
+  background-color: #D4AF37;
+  border-color: #D4AF37;
+}
+
+.gold-checkbox .form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25) !important;
+  border-color: #D4AF37 !important;
+}
+
+/* Compact Form Styles */
+.enquiry-modal .form-label {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.enquiry-modal .form-control {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.9rem;
+  border: 1px solid #ddd;
+  border-radius: 0;
+}
+
+.enquiry-modal textarea.form-control {
+  min-height: 80px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .navbar-nav {
+    padding-top: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .navbar-nav .nav-item {
+    margin: 0.5rem 0;
+  }
+  
+  .navbar-nav .nav-link.login-signup {
+    margin-left: 0;
+  }
+
+  .background-slide {
+    height: 500px;
+  }
+
+  .background-slide h2 {
+    font-size: 2.5rem;
+  }
+
+  .background-slide p {
+    font-size: 1rem;
+  }
+
+  .venue-card {
+    margin-bottom: 2rem;
+  }
+
+  .venue-card .card-body {
+    padding: 1.5rem;
+  }
+
+  .culinary-section {
+    padding: 50px 50px; /* Reduced padding for medium screens */
+  }
+
+  .culinary-row {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .background-slide {
+    height: 400px;
+  }
+
+  .background-slide h2 {
+    font-size: 2rem;
+  }
+
+  .background-slide p {
+    font-size: 0.9rem;
+  }
+
+  .venue-card .card-body {
+    padding: 1.5rem;
+  }
+
+  .culinary-section {
+    padding: 30px 30px; /* Further reduced padding for small screens */
+  }
+
+  .culinary-row {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .culinary-heading {
+    font-size: 2rem;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
 }

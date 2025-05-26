@@ -1,182 +1,149 @@
-import React from 'react';
+import React, { useState } from "react";
+import { Container, Row, Col, Card, Carousel, Button } from "react-bootstrap";
+import VenueModal from "./components/VenueModal";
+import EnquiryForm from "./components/EnquiryForm";
+import "./App.css";
 
-const HotelDiningPage = () => {
-  return (
-    <div style={styles.container}>
-      <header style={styles.header}>
-        <h1 style={styles.title}>Luminaire Restaurant</h1>
-        <p style={styles.subtitle}>Culinary Elegance at Grand Horizon Hotel</p>
-      </header>
+// Import images from src/assets
+import dining1 from "./assets/dining1.jpg";
+import dining2 from "./assets/dining2.jpg";
+import dining3 from "./assets/dining3.jpg";
+import dining4 from "./assets/dining4.jpg";
+import menu1 from "./assets/menu1.jpg";
+import menu2 from "./assets/menu2.jpg";
+import menu3 from "./assets/menu3.jpg";
+import menu4 from "./assets/menu4.jpg";
 
-      <div style={styles.heroSection}>
-        <div style={styles.heroOverlay}>
-          <h2 style={styles.heroTitle}>Savor Extraordinary Dining</h2>
-          <p style={styles.heroDescription}>
-            An exquisite culinary journey awaits you at our signature restaurant
-          </p>
+const Dining = () => {
+    const [showModal, setShowModal] = useState(false);
+    const [showEnquiryForm, setShowEnquiryForm] = useState(false);
+    const [selectedVenue, setSelectedVenue] = useState(null);
+    const [enquiryVenue, setEnquiryVenue] = useState("");
+
+    const backgrounds = [
+        dining1,
+        dining2,
+        dining3,
+        dining4,
+    ];
+
+    const venues = [
+        { 
+            id: 1, 
+            name: "Seasonal Tasting Menu", 
+            img: menu1, 
+            description: "A curated selection of locally sourced ingredients.",
+            fullDescription: "Experience the finest seasonal ingredients sourced locally, crafted into a multi-course tasting menu that highlights the flavors of the region. Perfect for food enthusiasts looking for a unique dining experience.",
+            capacity: "Available for parties of 2-10",
+            features: ["Locally sourced ingredients", "Multi-course menu", "Customizable options"]
+        },
+        { 
+            id: 2, 
+            name: "Wine Pairing", 
+            img: menu2, 
+            description: "Expertly selected wines to complement each course.",
+            fullDescription: "Enhance your dining experience with our expertly curated wine pairings, designed to complement each course of your meal. Our sommelier selects from a diverse collection of international and local wines.",
+            capacity: "Available with any dining package",
+            features: ["International wine selection", "Sommelier guidance", "Custom pairings"]
+        },
+        { 
+            id: 3, 
+            name: "Chef's Special", 
+            img: menu3, 
+            description: "Innovative creations from our award-winning chef.",
+            fullDescription: "Indulge in the creativity of our award-winning chef with a daily special that showcases innovative techniques and bold flavors. A perfect choice for adventurous diners seeking something extraordinary.",
+            capacity: "Available for all guests",
+            features: ["Daily changing menu", "Innovative dishes", "Chef's signature style"]
+        },
+        { 
+            id: 4, 
+            name: "Gourmet Dessert Platter", 
+            img: menu4, 
+            description: "A delightful assortment of signature desserts.",
+            fullDescription: "Treat yourself to a luxurious dessert platter featuring a selection of our chef's signature creations, crafted to delight your senses with every bite. Perfect for sharing or indulging solo.",
+            capacity: "Available for all guests",
+            features: ["Signature desserts", "Artisanal presentation", "Perfect for sharing"]
+        },
+    ];
+
+    const handleEnquire = (venueName) => {
+        setEnquiryVenue(venueName);
+        setShowEnquiryForm(true);
+    };
+
+    return (
+        <div className="meet-celebrate-section">
+            <Carousel fade interval={3000} controls={true} indicators={true}>
+                {backgrounds.map((bg, index) => (
+                    <Carousel.Item key={index}>
+                        <div className="background-slide" style={{ backgroundImage: `url(${bg})` }}>
+                            <Container className="text-center text-white">
+                                <h2 className="fw-bold display-4">Luminaire Restaurant</h2>
+                                <p className="lead">Savor Extraordinary Dining at Grand Horizon Hotel</p>
+                            </Container>
+                        </div>
+                    </Carousel.Item>
+                ))}
+            </Carousel>
+
+            <Container className="culinary-section my-5 py-5">
+                <h2 className="text-center culinary-heading">Our Culinary Experience</h2>
+                <Row className="g-4 culinary-row">
+                    {venues.map((venue) => (
+                        <Col lg={3} md={6} key={venue.id}>
+                            <Card className="shadow-sm h-100 venue-card">
+                                <Card.Img 
+                                    variant="top" 
+                                    src={venue.img} 
+                                    alt={venue.name} 
+                                    className="venue-img"
+                                />
+                                <Card.Body className="d-flex flex-column">
+                                    <Card.Title className="fw-bold mb-3">{venue.name}</Card.Title>
+                                    <Card.Text className="flex-grow-1">{venue.description}</Card.Text>
+                                    <div className="mt-auto d-flex justify-content-between">
+                                        <Button 
+                                            variant="outline-dark" 
+                                            className="enquire-btn"
+                                            onClick={() => handleEnquire(venue.name)}
+                                        >
+                                            ENQUIRE NOW
+                                        </Button>
+                                        <Button 
+                                            venue={venue}
+                                            variant="link" 
+                                            className="more-btn"
+                                            onClick={() => {
+                                                setSelectedVenue(venue);
+                                                setShowModal(true);
+                                            }}
+                                        >
+                                            MORE
+                                        </Button>
+                                    </div>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    ))}
+                </Row>
+            </Container>
+
+            {selectedVenue && (
+                <VenueModal 
+                    show={showModal}
+                    onHide={() => setShowModal(false)}
+                    venue={selectedVenue}
+                    onEnquire={handleEnquire}
+                />
+            )}
+
+            <EnquiryForm 
+                show={showEnquiryForm}
+                onHide={() => setShowEnquiryForm(false)}
+                venueName={enquiryVenue}
+            />
         </div>
-      </div>
-
-      <section style={styles.menuHighlight}>
-        <div style={styles.menuContent}>
-          <h3 style={styles.sectionTitle}>Our Culinary Experience</h3>
-          <div style={styles.menuGrid}>
-            <div style={styles.menuItem}>
-              <h4 style={styles.menuItemTitle}>Seasonal Tasting Menu</h4>
-              <p style={styles.menuItemDesc}>
-                A curated selection of locally sourced ingredients
-              </p>
-            </div>
-            <div style={styles.menuItem}>
-              <h4 style={styles.menuItemTitle}>Wine Pairing</h4>
-              <p style={styles.menuItemDesc}>
-                Expertly selected wines to complement each course
-              </p>
-            </div>
-            <div style={styles.menuItem}>
-              <h4 style={styles.menuItemTitle}>Chef's Special</h4>
-              <p style={styles.menuItemDesc}>
-                Innovative creations from our award-winning chef
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section style={styles.reservationSection}>
-        <h3 style={styles.sectionTitle}>Make a Reservation</h3>
-        <p style={styles.reservationText}>
-          Experience dining excellence. Book your table now.
-        </p>
-        <button style={styles.reservationButton}>
-          Reserve Your Table
-        </button>
-      </section>
-
-      <footer style={styles.footer}>
-        <div style={styles.footerContent}>
-          <p>Open Daily: 6:00 PM - 10:30 PM</p>
-          <p>Luminaire Restaurant | Grand Horizon Hotel</p>
-        </div>
-      </footer>
-    </div>
-  );
+    );
 };
 
-const styles = {
-  container: {
-    fontFamily: 'Arial, sans-serif',
-    maxWidth: '1200px',
-    margin: '0 auto',
-    color: '#333',
-  },
-  header: {
-    textAlign: 'center',
-    padding: '30px 0',
-    backgroundColor: '#f4f4f4',
-  },
-  title: {
-    fontSize: '2.5em',
-    color: '#2c3e50',
-    marginBottom: '10px',
-  },
-  subtitle: {
-    fontSize: '1.2em',
-    color: '#7f8c8d',
-  },
-  heroSection: {
-    backgroundImage: 'url("/api/placeholder/1200/600")',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    height: '500px',
-    position: 'relative',
-  },
-  heroOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    color: 'white',
-    textAlign: 'center',
-  },
-  heroTitle: {
-    fontSize: '3em',
-    marginBottom: '20px',
-  },
-  heroDescription: {
-    fontSize: '1.5em',
-  },
-  menuHighlight: {
-    padding: '50px 20px',
-    backgroundColor: '#f8f9fa',
-  },
-  menuContent: {
-    maxWidth: '900px',
-    margin: '0 auto',
-  },
-  sectionTitle: {
-    textAlign: 'center',
-    fontSize: '2em',
-    marginBottom: '40px',
-    color: '#2c3e50',
-  },
-  menuGrid: {
-    display: 'flex',
-    justifyContent: 'space-between',
-  },
-  menuItem: {
-    flex: '1',
-    textAlign: 'center',
-    padding: '20px',
-    margin: '0 15px',
-    backgroundColor: 'white',
-    borderRadius: '10px',
-    boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-  },
-  menuItemTitle: {
-    fontSize: '1.5em',
-    marginBottom: '15px',
-    color: '#2c3e50',
-  },
-  menuItemDesc: {
-    color: '#7f8c8d',
-  },
-  reservationSection: {
-    textAlign: 'center',
-    padding: '50px 20px',
-    backgroundColor: '#2c3e50',
-    color: 'white',
-  },
-  reservationText: {
-    fontSize: '1.2em',
-    marginBottom: '30px',
-  },
-  reservationButton: {
-    padding: '15px 30px',
-    fontSize: '1.1em',
-    backgroundColor: '#e74c3c',
-    color: 'white',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    transition: 'background-color 0.3s ease',
-  },
-  footer: {
-    backgroundColor: '#f4f4f4',
-    padding: '20px',
-    textAlign: 'center',
-    color: '#7f8c8d',
-  },
-  footerContent: {
-    maxWidth: '600px',
-    margin: '0 auto',
-  }
-};
-
-export default HotelDiningPage;
+export default Dining;
