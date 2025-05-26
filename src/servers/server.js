@@ -263,6 +263,63 @@ app.post('/api/bookings', async (req, res) => {
   }
 });
 
+const enquirySchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  phone: { type: String },
+  message: { type: String, required: true },
+  venueName: { type: String, required: true },
+  date: { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model("Enquiry", enquirySchema);
+
+app.post("/api/enquiries", async (req, res) => {
+  try {
+    const newEnquiry = new Enquiry(req.body);
+    await newEnquiry.save();
+    res.status(201).json({ message: "Enquiry submitted successfully." });
+  } catch (error) {
+    console.error("❌ Error saving enquiry:", error);
+    res.status(500).json({ message: "Server error." });
+  }
+});
+
+// Add this in your server file
+app.get('/api/dashboard-stats', async (req, res) => {
+  try {
+    const totalBookings = await Bookings.countDocuments();
+    const totalEmployees = await Employee.countDocuments();
+    const totalComplaints = await Complaint.countDocuments();
+    const pendingPayments = 55000; // You can pull from payment schema if added
+    const availableRooms = 16; // This should be dynamic if you have room management
+    const totalRooms = 21;
+    const bookedRooms = totalRooms - availableRooms;
+    const checkedIn = 2;
+
+    // Example: grouping bookings by country if such data existed
+    const bookingsByCountry = [
+      { country: "India", count: 30 },
+      { country: "USA", count: 15 },
+      { country: "UK", count: 8 },
+    ];
+
+    res.json({
+      totalRooms,
+      totalBookings,
+      bookedRooms,
+      availableRooms,
+      checkedIn,
+      totalEmployees,
+      totalComplaints,
+      pendingPayments,
+      earnings: 85000,
+      bookingsByCountry,
+    });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch dashboard data" });
+  }
+});
 
 // ✅ Start Server
 const PORT = process.env.PORT || 5000;
