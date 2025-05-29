@@ -27,7 +27,7 @@ main {
 .header-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 12px; /* Increased from 8px to 12px */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -39,7 +39,7 @@ main {
 }
 
 .logo {
-  font-size: 28px;
+  font-size: 26px; /* Increased from 22px to 26px */
   font-weight: 700;
   color: #d4af37;
   margin: 0;
@@ -48,7 +48,7 @@ main {
 
 .logo-subtext {
   color: #fff;
-  font-size: 12px;
+  font-size: 10px;
   letter-spacing: 3px;
   text-transform: uppercase;
 }
@@ -68,8 +68,16 @@ main {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 14px;
   transition: all 0.3s ease;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.nav-link.active {
+  color: #d4af37;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .nav-link:hover {
@@ -81,7 +89,7 @@ main {
   background: none;
   border: none;
   color: #fff;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
 }
 
@@ -108,10 +116,18 @@ main {
 .mobile-nav-link {
   color: #fff;
   text-decoration: none;
-  padding: 10px 0;
-  font-size: 16px;
+  padding: 8px 0;
+  font-size: 14px;
   font-weight: 500;
   transition: all 0.3s ease;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.mobile-nav-link.active {
+  color: #d4af37;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .mobile-nav-link:hover {
