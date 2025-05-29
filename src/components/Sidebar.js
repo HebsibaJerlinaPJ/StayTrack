@@ -7,7 +7,7 @@ import { BsFillPersonFill } from "react-icons/bs";
 
 const Sidebar = () => {
   return (
-    <div className="bg-dark text-white p-3 d-flex flex-column" style={{ width: "250px" }}>
+    <div className="bg-dark text-white p-3 d-flex flex-column" style={{ width: "250px" , height:"1000px"}}>
       <h4 className="text-warning">HOTEL MANAGEMENT SYSTEM</h4>
       <div className="mt-3">
         <div className="d-flex align-items-center mb-3">

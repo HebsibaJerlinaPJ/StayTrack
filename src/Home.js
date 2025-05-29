@@ -21,6 +21,26 @@ function Home() {
 
   // Array of background images
   const backgrounds = [rest1, rest2, rest3];
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = async () => {
+    if (!email) return alert("Please enter a valid email.");
+
+    try {
+      const res = await fetch("http://localhost:5000/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+      alert(data.message);
+    } catch (err) {
+      console.error(err);
+      alert("Failed to subscribe. Please try again.");
+    }
+  };
+
 
   // Rotate background images every 5 seconds
   useEffect(() => {
@@ -197,13 +217,17 @@ function Home() {
             Subscribe to our newsletter and be the first to know about special offers and events
           </p>
           <div className="newsletter-form">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              className="newsletter-input"
-            />
-            <button className="newsletter-button">Subscribe</button>
-          </div>
+      <input
+        type="email"
+        placeholder="Enter your email address"
+        className="newsletter-input"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <button className="newsletter-button" onClick={handleSubscribe}>
+        Subscribe
+      </button>
+    </div>
         </div>
       </section>
 

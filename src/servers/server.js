@@ -296,62 +296,87 @@ app.get('/api/dashboard-stats', async (req, res) => {
     const totalRooms = 21;
     const bookedRooms = totalRooms - availableRooms;
     const checkedIn = 2;
+    const earnings = 85000;
 
-    // Example: grouping bookings by country if such data existed
     const bookingsByCountry = [
-      { country: "India", count: 30 },
-      { country: "USA", count: 15 },
-      { country: "UK", count: 8 },
-    ];
-  
-    
-   
-  res.json({
-    totalRooms: 50,
-    bookedRooms: 30,
-    availableRooms: 20,
-    checkedIn: 18,
-    totalBookings: 45,
-    totalEmployees: 12,
-    totalComplaints: 5,
-    earnings: 56000,
-    pendingPayments: 12000,
-    bookingsByCountry: [
       { country: "India", count: 15 },
       { country: "USA", count: 10 },
       { country: "UK", count: 8 },
       { country: "Canada", count: 12 }
-    ],
-    bookingsPerRoomType: [
+    ];
+
+    const bookingsPerRoomType = [
       { type: "Deluxe", count: 20 },
       { type: "Standard", count: 15 },
       { type: "Suite", count: 10 }
-    ],
-    monthlyRevenue: [
+    ];
+
+    const monthlyRevenue = [
       { month: "Jan", revenue: 10000 },
       { month: "Feb", revenue: 8000 },
       { month: "Mar", revenue: 12000 },
       { month: "Apr", revenue: 15000 },
       { month: "May", revenue: 14000 }
-    ]
-  });
+    ];
 
     res.json({
       totalRooms,
-      totalBookings,
       bookedRooms,
       availableRooms,
       checkedIn,
+      totalBookings,
       totalEmployees,
       totalComplaints,
+      earnings,
       pendingPayments,
-      earnings: 85000,
       bookingsByCountry,
+      bookingsPerRoomType,
+      monthlyRevenue
     });
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch dashboard data" });
   }
 });
+
+const nodemailer = require("nodemailer");
+
+app.post('/api/subscribe', async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) return res.status(400).json({ message: "Email is required." });
+
+  try {
+    // Set up transporter (use your actual credentials or use a service like SendGrid)
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'shekkinap@gmail.com',
+        pass: 'ouze wfae hqtg gfui'  // Not your Gmail password. Use App Password.
+      }
+    });
+
+    const mailOptions = {
+      from: '"Your Hotel" <yourhotel@gmail.com>',
+      to: email,
+      subject: 'Welcome to Our Hotel Newsletter!',
+      html: `
+        <h2>Thanks for subscribing!</h2>
+        <p>We’ll keep you updated with our latest offers, rooms, and services.</p>
+        <p>Stay tuned!</p>
+        <strong>- The Hotel Team</strong>
+      `
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    res.json({ message: "Subscription email sent successfully!" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Failed to send email." });
+  }
+});
+
+
 
 // ✅ Start Server
 const PORT = process.env.PORT || 5000;
