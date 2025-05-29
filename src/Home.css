@@ -3,124 +3,16 @@ html, body, #root {
   width: 100%;
   margin: 0;
   padding: 0;
-
 }
 
 .container {
-  display:contents;
+  display: contents;
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
   font-family: 'Playfair Display', serif;
   color: #333;
   position: relative; /* Ensure proper stretching */
-}
-
-
-/* Header Styles */
-.header {
-  background-color: rgba(0, 0, 0, 0.8);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(5px);
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.header-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.logo {
-  font-size: 28px;
-  font-weight: 700;
-  color: #d4af37;
-  margin: 0;
-  letter-spacing: 1px;
-}
-
-.logo-subtext {
-  color: #fff;
-  font-size: 12px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-
-.desktop-nav {
-  display: flex;
-  gap: 30px;
-}
-
-@media (max-width: 768px) {
-  .desktop-nav {
-    display: none;
-  }
-}
-
-.nav-link {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 15px;
-  transition: all 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #d4af37;
-}
-
-.mobile-menu-button {
-  display: none;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .mobile-menu-button {
-    display: block;
-  }
-}
-
-.mobile-nav {
-  display: flex;
-  flex-direction: column;
-  background-color: #082a1e;
-  padding: 20px;
-  width: 100%;
-}
-
-@media (min-width: 769px) {
-  .mobile-nav {
-    display: none;
-  }
-}
-
-.mobile-nav-link {
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 0;
-  font-size: 16px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.mobile-nav-link:hover {
-  color: #d4af37;
 }
 
 /* Hero Section */
@@ -645,6 +537,7 @@ html, body, #root {
   background-color: #0a3a28;
   transform: scale(1.05);
 }
+
 /* Footer */
 .footer {
   background-color: #082a1e;

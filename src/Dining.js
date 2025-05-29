@@ -95,48 +95,49 @@ const Dining = () => {
                     </Carousel.Item>
                 ))}
             </Carousel>
+            <br></br>
 
-            <Container className="culinary-section my-5 py-5">
-                <h2 className="text-center culinary-heading">Our Culinary Experience</h2>
-                <Row className="g-4 culinary-row">
-                    {venues.map((venue) => (
-                        <Col lg={3} md={6} key={venue.id}>
-                            <Card className="shadow-sm h-100 venue-card">
-                                <Card.Img 
-                                    variant="top" 
-                                    src={venue.img} 
-                                    alt={venue.name} 
-                                    className="venue-img"
-                                />
-                                <Card.Body className="d-flex flex-column">
-                                    <Card.Title className="fw-bold mb-3">{venue.name}</Card.Title>
-                                    <Card.Text className="flex-grow-1">{venue.description}</Card.Text>
-                                    <div className="mt-auto d-flex justify-content-between">
-                                        <Button 
-                                            variant="outline-dark" 
-                                            className="enquire-btn"
-                                            onClick={() => handleEnquire(venue.name)}
-                                        >
-                                            ENQUIRE NOW
-                                        </Button>
-                                        <Button 
-                                            venue={venue}
-                                            variant="link" 
-                                            className="more-btn"
-                                            onClick={() => {
-                                                setSelectedVenue(venue);
-                                                setShowModal(true);
-                                            }}
-                                        >
-                                            MORE
-                                        </Button>
-                                    </div>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    ))}
-                </Row>
-            </Container>
+           <Container className="culinary-section my-5 py-5">
+    <h2 className="text-center culinary-heading mb-4">Our Culinary Experience</h2>
+    <Row className="g-4 culinary-row">
+        {venues.map((venue) => (
+            <Col lg={3} md={6} key={venue.id}>
+                <Card className="shadow-sm h-100 venue-card">
+                    <Card.Img 
+                        variant="top" 
+                        src={venue.img} 
+                        alt={venue.name} 
+                        className="venue-img"
+                    />
+                    <Card.Body className="d-flex flex-column">
+                        <Card.Title className="fw-bold mb-3">{venue.name}</Card.Title>
+                        <Card.Text className="flex-grow-1">{venue.description}</Card.Text>
+                        <div className="mt-auto d-flex justify-content-between">
+                            <Button 
+                                variant="outline-dark" 
+                                className="enquire-btn"
+                                onClick={() => handleEnquire(venue.name)}
+                            >
+                                ENQUIRE NOW
+                            </Button>
+                            <Button 
+                                variant="link" 
+                                className="more-btn p-0"
+                                onClick={() => {
+                                    setSelectedVenue(venue);
+                                    setShowModal(true);
+                                }}
+                            >
+                                MORE
+                            </Button>
+                        </div>
+                    </Card.Body>
+                </Card>
+            </Col>
+        ))}
+    </Row>
+</Container>
+
 
             {selectedVenue && (
                 <VenueModal 
