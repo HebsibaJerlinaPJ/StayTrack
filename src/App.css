@@ -300,9 +300,13 @@ body {
 }
 
 /* Culinary Section Container */
+/* Culinary Section Container */
 .culinary-section {
-  padding: 70px 70px; /* Increased padding for more space above, below, left, and right */
+  padding: 70px 0; /* Top and bottom padding only */
+  max-width: 1200px; /* Restrict max width */
+  margin: 0 auto; /* Center the container horizontally */
 }
+
 
 /* Culinary Heading Styling */
 .culinary-heading {
@@ -311,21 +315,30 @@ body {
   font-weight: 700;
   letter-spacing: 1px;
   position: relative;
-  padding-bottom: 15px;
-  margin-top: 40px; /* Added space above the heading */
-  margin-bottom: 60px; /* Increased space below the heading */
+  padding-bottom: 0; /* Removed padding under heading */
+  margin-top: 40px;
+  margin-bottom: 60px;
+    border-bottom: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.culinary-section,
+.culinary-heading,
+.culinary-section * {
+  border-bottom: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .culinary-heading::after {
   content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px; /* Short golden underline, not full page width */
-  height: 3px;
-  background-color: #D4AF37; /* Golden underline */
+  display: block;
+  width: 200px;
+  height: 2px;
+  margin: 12px auto 0;
+  background-color: #d4af37; /* or lightgray for subtle effect */
 }
+
 
 /* Row Styling for Cards */
 .culinary-row {
@@ -339,7 +352,16 @@ body {
   border-radius: 15px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: white;
-  overflow: hidden; /* Prevent content from overflowing */
+  overflow: hidden;
+  margin-bottom: 50px;
+  max-width: 360px; /* Increased width further for a more spacious look (previously 320px) */
+}
+
+/* Ensure cards in a grid layout can take more width */
+@media (min-width: 768px) {
+  .venue-card {
+    max-width: 380px; /* Even wider on larger screens */
+  }
 }
 
 .venue-card:hover {
@@ -348,7 +370,7 @@ body {
 }
 
 .venue-img {
-  height: 240px; /* Larger images for a spacious feel */
+  height: 180px; /* Reduced further from 200px to lower overall card height */
   object-fit: cover;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -356,7 +378,7 @@ body {
 
 /* Card Body Styling */
 .venue-card .card-body {
-  padding: 2rem;
+  padding: 1rem; /* Reduced padding further from 1.5rem to bring button closer */
 }
 
 .venue-card .card-title {
@@ -369,6 +391,7 @@ body {
   font-size: 0.95rem;
   line-height: 1.7;
   color: #666;
+  margin-bottom: 0.3rem; /* Reduced further from 0.5rem for tighter spacing */
 }
 
 /* Enquire Button Golden Style */
