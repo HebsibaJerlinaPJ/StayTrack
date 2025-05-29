@@ -449,14 +449,20 @@ body {
 }
 
 .enquiry-modal .form-control {
-  border: 1px solid #D4AF37 !important;
-  transition: border-color 0.3s ease;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
 }
 
 .enquiry-modal .form-control:focus {
-  border-color: #D4AF37 !important;
-  box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25) !important;
+  border-color: #66afe9;
+  box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
+  outline: none;
 }
+
 
 .gold-checkbox .form-check-input:checked {
   background-color: #D4AF37;
