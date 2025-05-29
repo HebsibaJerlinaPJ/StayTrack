@@ -81,9 +81,28 @@ html, body {
   text-align: center;
 }
 
-.section-title {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
+/* Updated Title Styling for Spa Treatments Section */
+.spa-treatments-section .section-title {
+  color: #0c4b33;
+  position: relative;
+  display: inline-block;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+
+
+.spa-treatments-section .section-title::after {
+    content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #D4AF37;
+  border-radius: 2px;
 }
 
 .section-subtitle {
@@ -147,7 +166,7 @@ html, body {
 
 /* Enhanced Ambiance Section */
 .spa-ambiance-section {
-  padding: 6rem 2rem;
+  padding: 4rem 2rem;
   background-color: #f9f9f9;
   text-align: center;
 }
@@ -156,7 +175,7 @@ html, body {
   color: #0c4b33;
   position: relative;
   display: inline-block;
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   margin-bottom: 2rem;
   font-weight: 700;
 }
@@ -174,9 +193,9 @@ html, body {
 }
 
 .ambiance-carousel {
-  margin: 4rem auto;
-  height: 850px;
-  max-width: 1800px;
+  margin: 3rem auto;
+  height: 500px;
+  max-width: 1200px;
   width: 95%;
   border-radius: 12px;
   overflow: hidden;
@@ -188,18 +207,20 @@ html, body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s ease;
+  padding: 0;
+  margin: 0;
+  transition: transform 0.5s ease;
 }
 
 .ambiance-slide-image:hover {
-  transform: scale(1.04);
+  transform: scale(1.02);
 }
 
 /* Carousel Navigation Arrows */
 .ambiance-carousel .carousel-control-prev,
 .ambiance-carousel .carousel-control-next {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background-color: rgba(212, 175, 55, 0.8);
   border-radius: 50%;
   top: 50%;
@@ -217,29 +238,29 @@ html, body {
 /* Responsive Tweaks */
 @media (max-width: 1600px) {
   .ambiance-carousel {
-    height: 750px;
+    height: 450px;
   }
 }
 
 @media (max-width: 1200px) {
   .ambiance-carousel {
-    height: 650px;
+    height: 400px;
   }
-  
+
   .spa-ambiance-section .section-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 }
 
 @media (max-width: 992px) {
   .ambiance-carousel {
-    height: 550px;
+    height: 350px;
   }
-  
+
   .hero-slide-title {
     font-size: 2.4rem;
   }
-  
+
   .treatment-card-large {
     width: 350px;
   }
@@ -247,32 +268,31 @@ html, body {
 
 @media (max-width: 768px) {
   .ambiance-carousel {
-    height: 450px;
-    margin: 3rem auto;
+    height: 300px;
   }
-  
+
   .spa-ambiance-section {
-    padding: 4rem 1rem;
+    padding: 3rem 1rem;
   }
-  
+
   .spa-ambiance-section .section-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .hero-slide-title {
     font-size: 2rem;
   }
-  
+
   .hero-slide-description {
     font-size: 1rem;
   }
-  
+
   .treatments-container {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .treatment-card-large {
     width: 90vw;
   }
@@ -280,20 +300,20 @@ html, body {
 
 @media (max-width: 576px) {
   .ambiance-carousel {
-    height: 350px;
+    height: 250px;
     border-radius: 8px;
   }
-  
+
   .spa-ambiance-section .section-title {
     font-size: 1.8rem;
   }
-  
+
   .hero-slide-title {
     font-size: 1.8rem;
   }
-  
+
   .spa-treatments-section,
   .spa-ambiance-section {
-    padding: 3rem 1rem;
+    padding: 2.5rem 1rem;
   }
 }
