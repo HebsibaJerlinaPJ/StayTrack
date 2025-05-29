@@ -3,7 +3,7 @@ import { Container, Row, Col, Card, Carousel, Button } from "react-bootstrap";
 import VenueModal from "./components/VenueModal";
 import EnquiryForm from "./components/EnquiryForm";
 import "./App.css";
-
+import axios from 'axios';
 // Import images from src/assets
 import dining1 from "./assets/dining1.jpg";
 import dining2 from "./assets/dining2.jpg";
@@ -70,6 +70,16 @@ const Dining = () => {
         setEnquiryVenue(venueName);
         setShowEnquiryForm(true);
     };
+
+    const handleFormSubmit = async (formData) => {
+  try {
+    await axios.post('http://localhost:5000/api/enquiries', formData);
+    alert('Enquiry submitted!');
+  } catch (error) {
+    console.error('Enquiry submission failed:', error);
+    alert('Failed to submit enquiry.');
+  }
+};
 
     return (
         <div className="meet-celebrate-section">
