@@ -61,7 +61,7 @@ const Dashboard = () => {
         </div>
 
         <div className="col-md-6">
-          <h5>Monthly Bookings (Dummy Data)</h5>
+          <h5>Monthly Booking</h5>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={[
               { month: "Jan", bookings: 20 },
@@ -80,6 +80,41 @@ const Dashboard = () => {
           </ResponsiveContainer>
         </div>
       </div>
+
+      <div className="row mt-5">
+  <div className="col-md-6">
+    <h5>Bookings by Room Type</h5>
+    <PieChart width={300} height={250}>
+      <Pie
+        data={stats.bookingsPerRoomType}
+        dataKey="count"
+        nameKey="type"
+        outerRadius={100}
+        fill="#8884d8"
+        label
+      >
+        {stats.bookingsPerRoomType.map((entry, index) => (
+          <Cell key={`room-type-${index}`} fill={COLORS[index % COLORS.length]} />
+        ))}
+      </Pie>
+      <Tooltip />
+    </PieChart>
+  </div>
+
+  <div className="col-md-6">
+    <h5>Monthly Revenue</h5>
+    <ResponsiveContainer width="100%" height={250}>
+      <BarChart data={stats.monthlyRevenue}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="month" />
+        <YAxis />
+        <Tooltip />
+        <Bar dataKey="revenue" fill="#8884d8" />
+      </BarChart>
+    </ResponsiveContainer>
+  </div>
+</div>
+
 
       <div className="row mt-4 text-center">
         <div className="col-md-6">

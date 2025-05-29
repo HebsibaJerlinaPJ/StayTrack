@@ -303,6 +303,38 @@ app.get('/api/dashboard-stats', async (req, res) => {
       { country: "USA", count: 15 },
       { country: "UK", count: 8 },
     ];
+  
+    
+   
+  res.json({
+    totalRooms: 50,
+    bookedRooms: 30,
+    availableRooms: 20,
+    checkedIn: 18,
+    totalBookings: 45,
+    totalEmployees: 12,
+    totalComplaints: 5,
+    earnings: 56000,
+    pendingPayments: 12000,
+    bookingsByCountry: [
+      { country: "India", count: 15 },
+      { country: "USA", count: 10 },
+      { country: "UK", count: 8 },
+      { country: "Canada", count: 12 }
+    ],
+    bookingsPerRoomType: [
+      { type: "Deluxe", count: 20 },
+      { type: "Standard", count: 15 },
+      { type: "Suite", count: 10 }
+    ],
+    monthlyRevenue: [
+      { month: "Jan", revenue: 10000 },
+      { month: "Feb", revenue: 8000 },
+      { month: "Mar", revenue: 12000 },
+      { month: "Apr", revenue: 15000 },
+      { month: "May", revenue: 14000 }
+    ]
+  });
 
     res.json({
       totalRooms,
