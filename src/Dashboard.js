@@ -91,7 +91,7 @@ const Dashboard = () => {
 
         <div className="row mt-5">
           <div className="col-md-6">
-            <h5>Bookings by Room Type</h5>
+            <h5>Bookings Bary Room Type</h5>
             <PieChart width={300} height={250}>
               <Pie
                 data={stats.bookingsPerRoomType}
