@@ -14,7 +14,6 @@ import testimonial2 from './assets/testimonial2.jpg';
 import testimonial3 from './assets/testimonial3.jpg';
 
 function Home() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentBg, setCurrentBg] = useState(0);
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
@@ -60,45 +59,6 @@ function Home() {
 
   return (
     <div className="container">
-      {/* Header */}
-      <header className="header">
-        <div className="header-content">
-          <div className="logo-container">
-            <h1 className="logo">LuxeStay</h1>
-            <span className="logo-subtext">HOTEL & RESORTS</span>
-          </div>
-          
-          <nav className="desktop-nav">
-            <Link to="/book" className="nav-link">Booking</Link>
-            <Link to="/dine" className="nav-link">Dining</Link>
-            <Link to="/spa" className="nav-link">SPA</Link>
-            <Link to="/feedback" className="nav-link">Feedback</Link>
-            <Link to="/about" className="nav-link">AboutUS</Link>
-            <Link to="/exp" className="nav-link">Experience</Link>
-            <Link to="/login" className="nav-link">Login</Link>
-          </nav>
-          
-          <button 
-            className="mobile-menu-button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? "✕" : "☰"}
-          </button>
-        </div>
-        
-        {mobileMenuOpen && (
-          <div className="mobile-nav">
-            <Link to="/book" className="mobile-nav-link">Booking</Link>
-            <Link to="/dine" className="mobile-nav-link">Dining</Link>
-            <Link to="/spa" className="mobile-nav-link">SPA</Link>
-            <Link to="/feedback" className="mobile-nav-link">Feedback</Link>
-            <Link to="/about" className="mobile-nav-link">AboutUS</Link>
-            <Link to="/exp" className="mobile-nav-link">Experience</Link>
-            <Link to="/login" className="mobile-nav-link">Login</Link>
-          </div>
-        )}
-      </header>
-
       {/* Hero Section with rotating backgrounds */}
       <section className="hero" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgrounds[currentBg]})` }}>
         <div className="hero-overlay">
@@ -156,53 +116,54 @@ function Home() {
       </section>
 
       {/* Services Section */}
-<section className="services-section">
-  <div className="section-header">
-    <h2 className="section-title">Our Exclusive Services</h2>
-    <p className="section-subtitle">Experience the pinnacle of luxury hospitality</p>
-  </div>
-  <div className="services-grid">
-    <div className="service-card">
-      <div className="service-image-container">
-        <img src={roomService} alt="Luxury Accommodation" className="service-image" />
-        <div className="service-overlay"></div>
-      </div>
-      <div className="service-content">
-        <h3 className="service-title">Luxury Accommodation</h3>
-        <p className="service-description">
-          Experience comfort in our elegantly designed rooms and suites with premium amenities
-        </p>
-        <Link to="/book" className="service-link">Discover More →</Link>
-      </div>
-    </div>
-    <div className="service-card">
-      <div className="service-image-container">
-        <img src={diningService} alt="Fine Dining" className="service-image" />
-        <div className="service-overlay"></div>
-      </div>
-      <div className="service-content">
-        <h3 className="service-title">Fine Dining</h3>
-        <p className="service-description">
-          Savor exquisite cuisine prepared by award-winning chefs in our restaurants
-        </p>
-        <Link to="/dine" className="service-link">Discover More →</Link>
-      </div>
-    </div>
-    <div className="service-card">
-      <div className="service-image-container">
-        <img src={spaService} alt="Premium Spa" className="service-image" />
-        <div className="service-overlay"></div>
-      </div>
-      <div className="service-content">
-        <h3 className="service-title">Premium Spa</h3>
-        <p className="service-description">
-          Rejuvenate your senses with our world-class spa treatments and therapies
-        </p>
-        <Link to="/spa" className="service-link">Discover More →</Link>
-      </div>
-    </div>
-  </div>
-</section>
+      <section className="services-section">
+        <div className="section-header">
+          <h2 className="section-title">Our Exclusive Services</h2>
+          <p className="section-subtitle">Experience the pinnacle of luxury hospitality</p>
+        </div>
+        <div className="services-grid">
+          <div className="service-card">
+            <div className="service-image-container">
+              <img src={roomService} alt="Luxury Accommodation" className="service-image" />
+              <div className="service-overlay"></div>
+            </div>
+            <div className="service-content">
+              <h3 className="service-title">Luxury Accommodation</h3>
+              <p className="service-description">
+                Experience comfort in our elegantly designed rooms and suites with premium amenities
+              </p>
+              <Link to="/book" className="service-link">Discover More →</Link>
+            </div>
+          </div>
+          <div className="service-card">
+            <div className="service-image-container">
+              <img src={diningService} alt="Fine Dining" className="service-image" />
+              <div className="service-overlay"></div>
+            </div>
+            <div className="service-content">
+              <h3 className="service-title">Fine Dining</h3>
+              <p className="service-description">
+                Savor exquisite cuisine prepared by award-winning chefs in our restaurants
+              </p>
+              <Link to="/dine" className="service-link">Discover More →</Link>
+            </div>
+          </div>
+          <div className="service-card">
+            <div className="service-image-container">
+              <img src={spaService} alt="Premium Spa" className="service-image" />
+              <div className="service-overlay"></div>
+            </div>
+            <div className="service-content">
+              <h3 className="service-title">Premium Spa</h3>
+              <p className="service-description">
+                Rejuvenate your senses with our world-class spa treatments and therapies
+              </p>
+              <Link to="/spa" className="service-link">Discover More →</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="testimonials-section">
         <div className="section-header">
@@ -227,23 +188,24 @@ function Home() {
           ))}
         </div>
       </section>
-{/* Newsletter Section */}
-<section className="newsletter-section">
-  <div className="newsletter-content">
-    <h2 className="newsletter-title">Stay Updated with Exclusive Offers</h2>
-    <p className="newsletter-description">
-      Subscribe to our newsletter and be the first to know about special offers and events
-    </p>
-    <div className="newsletter-form">
-      <input
-        type="email"
-        placeholder="Enter your email address"
-        className="newsletter-input"
-      />
-      <button className="newsletter-button">Subscribe</button>
-    </div>
-  </div>
-</section>
+
+      {/* Newsletter Section */}
+      <section className="newsletter-section">
+        <div className="newsletter-content">
+          <h2 className="newsletter-title">Stay Updated with Exclusive Offers</h2>
+          <p className="newsletter-description">
+            Subscribe to our newsletter and be the first to know about special offers and events
+          </p>
+          <div className="newsletter-form">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              className="newsletter-input"
+            />
+            <button className="newsletter-button">Subscribe</button>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="footer">
