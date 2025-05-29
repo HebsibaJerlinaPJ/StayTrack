@@ -1,0 +1,299 @@
+/* GLOBAL RESET */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Wrapper */
+.spa-wrapper {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+/* Hero Section */
+.spa-hero-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-slide {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.hero-slide img.hero-slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+.hero-slide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.hero-slide-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+.hero-slide-description {
+  font-size: 1.2rem;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Treatments Section */
+.spa-treatments-section {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #777;
+  margin-bottom: 2rem;
+}
+
+.treatments-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Bigger treatment cards */
+.treatment-card-large {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  width: 400px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.treatment-card-large:hover {
+  transform: translateY(-5px);
+}
+
+.treatment-image-container {
+  height: 200px;
+  overflow: hidden;
+}
+
+.treatment-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.treatment-image:hover {
+  transform: scale(1.05);
+}
+
+.treatment-details {
+  padding: 1.5rem;
+}
+
+.treatment-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.treatment-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Enhanced Ambiance Section */
+.spa-ambiance-section {
+  padding: 6rem 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.spa-ambiance-section .section-title {
+  color: #0c4b33;
+  position: relative;
+  display: inline-block;
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.spa-ambiance-section .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #D4AF37;
+  border-radius: 2px;
+}
+
+.ambiance-carousel {
+  margin: 4rem auto;
+  height: 850px;
+  max-width: 1800px;
+  width: 95%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.ambiance-slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.ambiance-slide-image:hover {
+  transform: scale(1.04);
+}
+
+/* Carousel Navigation Arrows */
+.ambiance-carousel .carousel-control-prev,
+.ambiance-carousel .carousel-control-next {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(212, 175, 55, 0.8);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.ambiance-carousel .carousel-control-prev:hover,
+.ambiance-carousel .carousel-control-next:hover {
+  opacity: 1;
+  background-color: #D4AF37;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 1600px) {
+  .ambiance-carousel {
+    height: 750px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .ambiance-carousel {
+    height: 650px;
+  }
+  
+  .spa-ambiance-section .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .ambiance-carousel {
+    height: 550px;
+  }
+  
+  .hero-slide-title {
+    font-size: 2.4rem;
+  }
+  
+  .treatment-card-large {
+    width: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ambiance-carousel {
+    height: 450px;
+    margin: 3rem auto;
+  }
+  
+  .spa-ambiance-section {
+    padding: 4rem 1rem;
+  }
+  
+  .spa-ambiance-section .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-slide-title {
+    font-size: 2rem;
+  }
+  
+  .hero-slide-description {
+    font-size: 1rem;
+  }
+  
+  .treatments-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .treatment-card-large {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .ambiance-carousel {
+    height: 350px;
+    border-radius: 8px;
+  }
+  
+  .spa-ambiance-section .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-slide-title {
+    font-size: 1.8rem;
+  }
+  
+  .spa-treatments-section,
+  .spa-ambiance-section {
+    padding: 3rem 1rem;
+  }
+}

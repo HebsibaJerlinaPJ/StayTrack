@@ -1,77 +1,86 @@
-import { useState } from "react";
-import { Card, CardContent } from "./components/Card";
-import { Button } from "./components/Button";
+import React from "react";
 import { Carousel } from "react-responsive-carousel";
-//import "react-responsive-carousel/lib/styles/carousel.min.css";
-import pic1 from "../src/assets/Aroma.jpeg";
-import pic2 from "../src/assets/hotstone.jpeg";
-import pic3 from "../src/assets/deeptissue.jpg";
-import pic4 from "../src/assets/spa.jpg";
-import pl1 from "../src/assets/play1.jpg";
-import pl2 from "../src/assets/play2.jpg";
-import pl3 from "../src/assets/play3.jpg";
-import pl4 from "../src/assets/play4.jpg";
-import pl5 from "../src/assets/play5.jpg";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import WaterEffect from "./WaterEffect"; 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "./Spa.css";
+
+// Importing images from src/assets
+import deepTissueImg from "./assets/deeptissue.jpg";
+import aromaImg from "./assets/Aroma.jpeg";
+import hotStoneImg from "./assets/hotstone.jpeg";
+import spaImg from "./assets/spa.jpg";
+
+import play1 from "./assets/play1.jpg";
+import play2 from "./assets/play2.jpg";
+import play3 from "./assets/play3.jpg";
+import play4 from "./assets/play4.jpg";
+import play5 from "./assets/play5.jpg";
 
 export default function SpaPage() {
-  const [selectedService, setSelectedService] = useState(null);
+  const heroSlides = [
+    { image: aromaImg, title: "Aromatherapy Massage", description: "Unwind with the soothing power of essential oils." },
+    { image: hotStoneImg, title: "Hot Stone Therapy", description: "Melt away stress with warm, healing stones." },
+    { image: deepTissueImg, title: "Deep Tissue Massage", description: "Relieve tension with targeted deep pressure." },
+    { image: spaImg, title: "Signature Spa Experience", description: "Indulge in a luxurious full-body treatment." },
+  ];
 
-  const services = [
-    { name: "Aromatherapy Massage", price: "$50", image: pic1 },
-    { name: "Hot Stone Therapy", price: "$65", image: pic2 },
-    { name: "Deep Tissue Massage", price: "$55", image: pic3 },
+  const ambianceSlides = [
+    { image: play1, alt: "Spa Ambiance 1" },
+    { image: play2, alt: "Spa Ambiance 2" },
+    { image: play3, alt: "Spa Ambiance 3" },
+    { image: play4, alt: "Spa Ambiance 4" },
+    { image: play5, alt: "Spa Ambiance 5" },
   ];
 
   return (
-    <div className="spa-container">
+    <div className="spa-wrapper">
       {/* Hero Section */}
-      <div className="hero-section">
-      <WaterEffect />
-        <h1>Welcome to Serenity Spa</h1>
-      </div>
-
-      {/* Services Section */}
-      <div className="services-section">
-        <h2>Our Spa Treatments</h2>
-        <div className="services-grid">
-          {services.map((service, index) => (
-            <Card key={index} className="service-card">
-              <img src={service.image} alt={service.name} className="service-image" />
-              <CardContent>
-                <h3>{service.name}</h3>
-                <p>{service.price}</p>
-                <Button onClick={() => setSelectedService(service)}>Book Now</Button>
-              </CardContent>
-            </Card>
+      <section className="spa-hero-section">
+        <Carousel showThumbs={false} infiniteLoop autoPlay interval={4000} showStatus={false} showArrows={true}>
+          {heroSlides.map((slide, index) => (
+            <div key={index} className="hero-slide">
+              <img src={slide.image} alt={slide.title} className="hero-slide-image" />
+              <div className="hero-slide-content">
+                <h1 className="hero-slide-title">{slide.title}</h1>
+                <p className="hero-slide-description">{slide.description}</p>
+              </div>
+            </div>
           ))}
-        </div>
-      </div>
-
-      {/* Gallery Section */}
-      <div className="gallery-section">
-        <Carousel showThumbs={false} infiniteLoop autoPlay>
-          <div><img src= {pl1} alt="Spa 1" /></div>
-          <div><img src= {pl2} alt="Spa 2" /></div>
-          <div><img src= {pl3} alt="Spa 3" /></div>
-          <div><img src= {pl4} alt="Spa 3" /></div>
-          <div><img src= {pl5} alt="Spa 3" /></div>
         </Carousel>
-      </div>  
+      </section>
 
-      {/* Booking Section */}
-      {selectedService && (
-        <div className="booking-modal">
-          <div className="booking-content">
-            <h2>Booking for {selectedService.name}</h2>
-            <p>Price: {selectedService.price}</p>
-            <Button onClick={() => alert("Booking Confirmed!")}>Confirm Booking</Button>
-            <Button className="cancel-button" onClick={() => setSelectedService(null)}>Cancel</Button>
-          </div>
+      {/* Treatments Section */}
+      <section className="spa-treatments-section">
+        <h2 className="section-title">Our Spa Treatments</h2>
+        <p className="section-subtitle">Discover the ultimate relaxation experience</p>
+        <div className="treatments-container">
+          {heroSlides
+            .filter(treatment => treatment.title !== "Signature Spa Experience")
+            .map((treatment, index) => (
+              <div key={index} className="treatment-card treatment-card-large">
+                <div className="treatment-image-container">
+                  <img src={treatment.image} alt={treatment.title} className="treatment-image" />
+                </div>
+                <div className="treatment-details">
+                  <h3 className="treatment-title">{treatment.title}</h3>
+                  <p className="treatment-description">{treatment.description}</p>
+                </div>
+              </div>
+            ))}
         </div>
-      )}
+      </section>
+
+      {/* Ambiance Section */}
+      <section className="spa-ambiance-section">
+        <h2 className="section-title">Explore Our Ambiance</h2>
+        <p className="section-subtitle">Step into a world of serenity and luxury</p>
+        <Carousel showThumbs={false} infiniteLoop autoPlay interval={3000} showStatus={false} showArrows={true} className="ambiance-carousel">
+          {ambianceSlides.map((slide, index) => (
+            <div key={index} className="ambiance-slide">
+              <img src={slide.image} alt={slide.alt} className="ambiance-slide-image" />
+            </div>
+          ))}
+        </Carousel>
+      </section>
     </div>
   );
 }
