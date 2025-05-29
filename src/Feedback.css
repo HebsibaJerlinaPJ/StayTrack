@@ -1,38 +1,157 @@
+/* Feedback.css - LuxeStay Premium Review System */
+.review-container {
+    background-color: #ffffff;
+    min-height: 100vh;
+    padding: 2rem;
+}
 
-.experience-page {
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
-    font-family: Arial, sans-serif;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-  }
-  
-  section {
-    margin-bottom: 30px;
-  }
-  
-  h2 {
-    color: #007BFF;
-    border-bottom: 2px solid #007BFF;
-    padding-bottom: 5px;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    margin: 10px 0;
-  }
-  
-  strong {
-    color: #333;
-  }
-  
-  
-  
+/* Form Section */
+.review-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 75, 51, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.review-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, #0c4b33, #D4AF37);
+}
+
+.review-title {
+    color: #0c4b33;
+    font-weight: 700;
+    margin-bottom: 2rem !important;
+    position: relative;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.review-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #D4AF37;
+}
+
+.form-control {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    border-color: #0c4b33;
+    box-shadow: 0 0 0 0.2rem rgba(12, 75, 51, 0.15);
+}
+
+.star-rating {
+    margin: 1rem 0 2rem;
+    display: flex;
+    gap: 8px;
+}
+
+.btn-success {
+    background-color: #0c4b33;
+    border: none;
+    padding: 12px 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    transition: all 0.3s;
+    margin-top: 1rem;
+}
+
+.btn-success:hover {
+    background-color: #0a3d29;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(12, 75, 51, 0.2);
+}
+
+/* Reviews List */
+.review-list-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #D4AF37;
+    transition: all 0.3s;
+}
+
+.review-list-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    color: #0c4b33;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.card-text {
+    color: #555;
+    line-height: 1.6;
+    margin-top: 0.8rem;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0c4b33;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0a3d29;
+}
+
+/* Toast Notification */
+.toast {
+    border-radius: 8px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .review-container {
+        padding: 1rem;
+    }
+    
+    .review-card {
+        padding: 1.5rem;
+    }
+    
+    .review-title {
+        font-size: 1.5rem;
+    }
+}
