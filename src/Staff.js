@@ -32,7 +32,7 @@ export default function StaffTable() {
   // Fetch staff data from API
   const fetchStaffData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/employees/all");
+      const response = await axios.get("https://staytrack.onrender.com/api/employees/all");
       setStaffData(response.data);
     } catch (error) {
       console.error("Error fetching staff data:", error);
@@ -62,14 +62,14 @@ export default function StaffTable() {
       let updatedStaff;
       if (selectedStaff) {
         const response = await axios.put(
-          `http://localhost:5000/api/employees/edit/${selectedStaff._id}`,
+          `https://staytrack.onrender.com/api/employees/edit/${selectedStaff._id}`,
           formData
         );
         updatedStaff = staffData.map((staff) =>
           staff._id === selectedStaff._id ? response.data : staff
         );
       } else {
-        const response = await axios.post("http://localhost:5000/api/employees/add", formData);
+        const response = await axios.post("https://staytrack.onrender.com/api/employees/add", formData);
         updatedStaff = [...staffData, response.data];
       }
       setStaffData(updatedStaff);
@@ -82,7 +82,7 @@ export default function StaffTable() {
   // Delete Employee
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/employees/delete/${id}`);
+      await axios.delete(`https://staytrack.onrender.com/api/employees/delete/${id}`);
       setStaffData((prevData) => prevData.filter((staff) => staff._id !== id));
     } catch (error) {
       console.error("Error deleting employee:", error);
@@ -94,7 +94,7 @@ export default function StaffTable() {
     const newShift = currentShift === "Day" ? "Night" : "Day";
     try {
       const response = await axios.patch(
-        `http://localhost:5000/api/employees/change-shift/${id}`,
+        `https://staytrack.onrender.com/api/employees/change-shift/${id}`,
         { shift: newShift }
       );
       setStaffData((prevData) =>

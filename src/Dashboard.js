@@ -12,7 +12,7 @@ const Dashboard = () => {
   const [stats, setStats] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/dashboard-stats")
+    axios.get("https://staytrack.onrender.com/api/dashboard-stats")
       .then((res) => setStats(res.data))
       .catch((err) => console.error(err));
   }, []);

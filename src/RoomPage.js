@@ -70,7 +70,7 @@ export default function RoomsPage() {
 
   const fetchRooms = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/rooms');
+      const response = await axios.get('https://staytrack.onrender.com/rooms');
       setRooms(response.data);
     } catch (error) {
       console.error("Error fetching rooms:", error);
@@ -100,9 +100,9 @@ export default function RoomsPage() {
   const handleAddRoom = async () => {
     try {
       if (editMode) {
-        await axios.put(`http://localhost:5000/rooms/${currentRoomId}`, newRoom);
+        await axios.put(`https://staytrack.onrender.com/rooms/${currentRoomId}`, newRoom);
       } else {
-        await axios.post('http://localhost:5000/rooms', newRoom);
+        await axios.post('https://staytrack.onrender.com/rooms', newRoom);
       }
       fetchRooms();
       handleClose();
@@ -120,7 +120,7 @@ export default function RoomsPage() {
 
   const handleDeleteRoom = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/rooms/${id}`);
+      await axios.delete(`https://staytrack.onrender.com/rooms/${id}`);
       fetchRooms();
     } catch (error) {
       console.error("Error deleting room:", error);

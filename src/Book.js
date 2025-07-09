@@ -24,7 +24,7 @@ const BookingPage = () => {
     setIsSubmitted(true);
     const bookingData = { name, email, phone, checkIn, checkOut, guests, roomType };
     try {
-      await axios.post('http://localhost:5000/api/bookings', bookingData);
+      await axios.post('https://staytrack.onrender.com/api/bookings', bookingData);
       navigate('/payment', { state: { bookingData } });
     } catch (error) {
       console.error('Error submitting booking:', error);

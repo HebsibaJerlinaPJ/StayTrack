@@ -18,7 +18,7 @@ const ReviewPage = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/User');
+        const response = await axios.get('https://staytrack.onrender.com/User');
         setReviews(response.data);
       } catch (error) {
         console.error("Error fetching reviews:", error);
@@ -41,7 +41,7 @@ const ReviewPage = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/User', newReview);
+      const response = await axios.post('https://staytrack.onrender.com/User', newReview);
       setReviews([response.data, ...reviews]);
 
       const submittedName = formData.name;

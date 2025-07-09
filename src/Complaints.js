@@ -7,13 +7,13 @@ export default function Complaints() {
   const [reply, setReply] = useState({ id: "", text: "" });
 
   useEffect(() => {
-    fetch("http://localhost:5000/complaints/")
+    fetch("https://staytrack.onrender.com/complaints/")
       .then((res) => res.json())
       .then((data) => setComplaints(data));
   }, []);
 
   const submitComplaint = async () => {
-    await fetch("http://localhost:5000/complaints/", {
+    await fetch("https://staytrack.onrender.com/complaints/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user_id: "user123", description: newComplaint }),
@@ -22,7 +22,7 @@ export default function Complaints() {
   };
 
   const submitReply = async (id) => {
-    await fetch("http://localhost:5000/complaints/reply", {
+    await fetch("https://staytrack.onrender.com/complaints/reply", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ complaint_id: id, admin_reply: reply.text }),
@@ -31,7 +31,7 @@ export default function Complaints() {
   };
 
   const submitRating = async (id, value) => {
-    await fetch("http://localhost:5000/complaints/rate", {
+    await fetch("https://staytrack.onrender.com/complaints/rate", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ complaint_id: id, rating: value }),

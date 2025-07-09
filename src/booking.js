@@ -44,7 +44,7 @@ const RoomBookingForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/book-room", {
+      const response = await axios.post("https://staytrack.onrender.com/api/book-room", {
         roomType,
         members: formData.length,
         guests: formData,

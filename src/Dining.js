@@ -73,7 +73,7 @@ const Dining = () => {
 
     const handleFormSubmit = async (formData) => {
   try {
-    await axios.post('http://localhost:5000/api/enquiries', formData);
+    await axios.post('https://staytrack.onrender.com/api/enquiries', formData);
     alert('Enquiry submitted!');
   } catch (error) {
     console.error('Enquiry submission failed:', error);
