@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
+import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import './Home.css';
 
@@ -14,6 +15,7 @@ import testimonial2 from './assets/testimonial2.jpg';
 import testimonial3 from './assets/testimonial3.jpg';
 
 function Home() {
+  const navigate = useNavigate();
   const [currentBg, setCurrentBg] = useState(0);
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
@@ -76,6 +78,9 @@ function Home() {
       image: testimonial3,
     },
   ];
+  const handleBooking = () => {
+    navigate("/book"); // This should match your Route path
+  };
 
   return (
     <div className="container">
@@ -85,10 +90,7 @@ function Home() {
           <div className="hero-content">
             <h2 className="hero-subtitle">THE LUXURY HOTEL</h2>
             <h1 className="hero-title">Experience Luxury Like Never Before</h1>
-            <div className="button-group">
-              <button className="primary-button">Explore Our Rooms</button>
-              <button className="secondary-button">View Packages</button>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -97,40 +99,9 @@ function Home() {
       <section className="booking-section">
         <div className="booking-form">
           <h3 className="booking-title">Book Your Stay</h3>
-          <div className="form-grid">
             <div className="form-group">
-              <label className="form-label">Check-in Date</label>
-              <input
-                type="date"
-                value={checkInDate}
-                onChange={(e) => setCheckInDate(e.target.value)}
-                className="form-input"
-              />
-            </div>
-            <div className="form-group">
-              <label className="form-label">Check-out Date</label>
-              <input
-                type="date"
-                value={checkOutDate}
-                onChange={(e) => setCheckOutDate(e.target.value)}
-                className="form-input"
-              />
-            </div>
-            <div className="form-group">
-              <label className="form-label">Guests</label>
-              <select
-                value={guests}
-                onChange={(e) => setGuests(e.target.value)}
-                className="form-input"
-              >
-                <option value="1">1 Guest</option>
-                <option value="2">2 Guests</option>
-                <option value="3">3 Guests</option>
-                <option value="4">4 Guests</option>
-                <option value="5">5+ Guests</option>
-              </select>
-            </div>
-            <button className="book-now-button">Check Availability</button>
+             
+            <button className="book-now-button" onClick={handleBooking}>Book now !!</button>
           </div>
         </div>
       </section>

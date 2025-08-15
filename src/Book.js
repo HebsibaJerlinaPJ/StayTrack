@@ -260,7 +260,7 @@ const BookingPage = () => {
     return (
       <div style={styles.container}>
         <header style={styles.header}>
-          <div style={styles.logo}>Bookking.js</div>
+          <div style={styles.logo}>Booking</div>
           <div style={styles.tagline}>Luxury Reimagined</div>
         </header>
 
@@ -284,7 +284,7 @@ const BookingPage = () => {
         </div>
 
         <footer style={styles.footer}>
-          <p>© 2025 Bookking.js Hotel. All rights reserved.</p>
+          <p>© 2025 Book Hotel. All rights reserved.</p>
           <p>123 Luxury Avenue, Resort City, RC 12345</p>
         </footer>
       </div>
@@ -294,7 +294,7 @@ const BookingPage = () => {
   return (
     <div style={styles.container}>
       <header style={styles.header}>
-        <div style={styles.logo}>Bookking.js</div>
+        <div style={styles.logo}>Booking Page</div>
         <div style={styles.tagline}>Luxury Reimagined</div>
       </header>
 
